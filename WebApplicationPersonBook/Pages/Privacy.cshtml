@@ -1,0 +1,153 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "О проекте";
+}
+<h1 class="text-secondary pb-4">@ViewData["Title"]</h1>
+
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Общие сведения о проекте
+                </button>
+            </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>
+                    Этот проект реализован в&nbsp;рамках технического задания (ТЗ), которое будет представлено ниже.<br />
+                    Цель создания данного проекта&nbsp;&mdash; получить практические навыки и&nbsp;закрепить теорию, полученную в&nbsp;рамках изучения
+                    фрэймворка ASP.NET Core.<br />
+                    Т.к. создание проекта не&nbsp;преследовало других целей, кроме описанных выше, логика функционала и&nbsp;логика интерфейса
+                    не&nbsp;должны рассматриваться как законченное целое и&nbsp;единственно верный вариант. Также фактор времени заставлял не&nbsp;заниматься
+                    проработкой каких-то отдельных деталей.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Техническое задание данного проекта
+                </button>
+            </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+                <b>Задание 1</b>
+                <br />
+                Создайте пустой проект ASP.NET и&nbsp;страницу index.cshtml, которая будет выводить информацию телефонной книжки, содержащую данные:
+                <br />
+                *ID<br />
+                *Фамилию<br />
+                *Имя<br />
+                *Отчество<br />
+                *Номер телефона<br />
+                *Адрес<br />
+                *Описание<br />
+                Описание содержит небольшую ключевую информацию о&nbsp;контакте. При этом вывод на&nbsp;странице должен быть следующим:
+                <br />
+                *ID<br />
+                *Фамилия<br />
+                *Имя<br />
+                *Отчество<br />
+                Также необходимо продумать структуру внешнего вида страницы.
+                <hr /><br />
+                <b>Задание 2</b><br />
+                Расширим программу из задания 1.<br />
+                На&nbsp;главной странице у&nbsp;нас содержится информация всех записей из&nbsp;записной книжки с&nbsp;ограниченной информацией.
+                <br />
+                Дополните ваше веб-приложение и&nbsp;создайте в&nbsp;нём дополнительную страницу,
+                которая будет содержать всю информацию о&nbsp;конкретной записи из&nbsp;записной книжки.
+                Переход на&nbsp;страницу по&nbsp;информации записи должен производиться при нажатии на&nbsp;ID&nbsp;записи.
+                <hr /><br />
+                <b>Задание 3</b><br />
+                Дополните программу. Создайте модели для добавления, редактирования и&nbsp;удаления записей из&nbsp;телефонной книги. На&nbsp;этот раз:
+                <br />
+                *хранение данных должно производится в базе данных;<br />
+                *доступ к данным должен осуществляться с применением модуля Entity Framework Core;<br />
+                *редактирование данных должно реализовываться с&nbsp;использованием методов обработки запросов GET, POST, PUT, DELETE.
+                <hr /><br />
+                <b>Задание 4</b><br />
+                Расширьте Web-приложение и&nbsp;подключите к&nbsp;нему модуль авторизации. При этом необходимо разграничить права доступа:<br />
+
+                *анонимный пользователь — имеет право просматривать только телефонную;<br />
+                *авторизованный пользователь&nbsp;&mdash; имеет возможность добавлять новые записи в&nbsp;телефонную книгу,
+                но&nbsp;не&nbsp;имеет возможности редактировать;<br />
+                *администратор&nbsp;&mdash; имеет полные права: добавлять, редактировать, удалять запись;
+                добавлять новых пользователей на&nbsp;сайт, удалять существующих пользователей.
+                <hr /><br />
+                <b>Задание 5</b><br />
+                 Создайте сервис Web API для нашего приложения.
+                 Дополнительно создайте настольное приложение с использованием WPF,
+                 в котором будет возможность авторизации и,
+                 в зависимости от роли, будут задействованы соответствующие API-методы.
+                 Сервис должен работать с СУБД и готовить данные для их отправки на сайт и в настольное приложение.
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Комментарии к ТЗ и к его реализации
+                </button>
+            </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>
+                    Я&nbsp;привёл последовательно 5&nbsp;ТЗ, каждое из&nbsp;которых дорабатывало предыдущее.
+                    Каждое отдельное задание выполнялось как отдельный проект.
+                    Данный проект писался с&nbsp;нуля, не&nbsp;как доработка предыдущего. С&nbsp;учётом всех ключевых моментов предыдущих ТЗ.
+                    Язык всего интерфейса&nbsp;&mdash; aнглийский, я&nbsp;нахожусь в&nbsp;процессе изучения языка,
+                    и&nbsp;сделать интерфейс на&nbsp;английском&nbsp;&mdash; моё желание.<br />
+                    С&nbsp;уважением к&nbsp;дочитавшим до&nbsp;этого места, и&nbsp;тем кто зашёл на&nbsp;этот сайт и&nbsp;потестировал его.<br />
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingFour">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Просьба автора к Уважаемым Гостям сайта
+                </button>
+            </h2>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>
+                    Спасибо, что выделили своё время и&nbsp;уделили внимание данному сайту. Жизненный паттерн &laquo;Драгоценное время&raquo; не&nbsp;подразумевает
+                    на&nbsp;подобных проектах придумывать какой то&nbsp;выходящий за&nbsp;ТЗ функционал. НО, очень интересно Ваше мнение. Если Вам это интересно,
+                    создайте контакт с&nbsp;вашим именем и&nbsp;картинкой(размер до&nbsp;100кБ) и&nbsp;в&nbsp;поле Additional Information напишите что-нибудь, критику и&nbsp;пожелания.
+                    <br />
+                    Заранее благодарен.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingFive">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Ссылка 
+                </button>
+            </h2>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>
+                    Вот ссылка на репозиторий проекта на Git Hub
+                    <br />
+                    <a href="" target="_blank">Вот здесь будет ссылка, как только я опубликую проект на хостинге</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>

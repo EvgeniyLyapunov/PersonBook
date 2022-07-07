@@ -1,0 +1,79 @@
+﻿@page
+@model WebApplicationPersonBook.Pages.Admin.DeleteUserModel
+
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<IdentityUser> _userManager;
+
+@{
+}
+
+@if (_userManager.IsInRoleAsync(@Model.Input.deleteUser, AppConst.AdminRole).Result)
+{
+        <div class="card">
+            <div class="card-header">
+                <h3 class=" text-info pl-3">Delete User</h3>
+            </div>
+            <div class="card-body p-4">
+                    <p class="card-text text-danger p-3 text-center"><strong>The selected user cannot be deleted, because he is an administrator!</strong></p>
+            </div>
+            <div class="card-footer">
+                <div class="col text-center">
+                    <a asp-area="" asp-page="/Admin/UsersList" class="btn btn-success w-75">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Back
+                    </a>
+                </div>
+            </div>
+        </div>
+}
+else
+{
+    <form method="post">
+        <div class="border p-3">
+            <div class="form-group row">
+                <h2 class="text-info pl-3">Delete User</h2>
+            </div>
+            <div class="form-group row">
+                <p class="text-danger pl-3">This user and <strong>all contacts created by him</strong> will be deleted. The operation is <strong>irreversible</strong>.</p>
+            </div>
+            <div class="row">
+                <div class="col-8">
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Input.UserName"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Input.UserName" disabled class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Input.UserRole"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Input.UserRole" disabled class="form-control" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div class="col-8 offset-4 row">
+                            <div class="col">
+                                <input type="submit" class="btn btn-danger w-100" value="Delete" />
+                            </div>
+                            <div class="col">
+                                <a asp-area="" asp-page="/Admin/UsersList" class="btn btn-success w-100">
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                    Back
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+}

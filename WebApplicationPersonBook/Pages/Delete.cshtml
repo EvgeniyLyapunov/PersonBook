@@ -1,0 +1,51 @@
+﻿@page
+@model WebApplicationPersonBook.Pages.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete Contact";
+}
+
+<form method="post" >
+    <input asp-for="@Model.Contact.Id" hidden />
+    <input asp-for="@Model.Contact.UserId" hidden />
+    <input asp-for="@Model.Contact.PictureName" hidden />
+
+    <div class="border p-3">
+
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Delete Contact</h2>
+        </div>
+
+        <div class="card mb-3" style="width: 100%;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(@Model.Contact.Avatar))" style="width: 90%;" class="rounded" />
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.Contact.FirstName @Model.Contact.LastName</h5>
+                        <p class="card-text">@Model.Contact.PhoneNumber</p>
+                        <p class="card-text">@Model.Contact.EMail</p>
+                        <p class="card-text">@Model.Contact.AdditionalInfo</p>
+                        <p class="card-text"><small class=" text-danger">This action is irreversible.</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-8 offset-4 row">
+                <div class="col">
+                    <input type="submit" class="btn btn-danger w-100" value="Delete" />
+                </div>
+                <div class="col">
+                    <a asp-area="" asp-page="/Contacts" class="btn btn-success w-100">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Back
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>

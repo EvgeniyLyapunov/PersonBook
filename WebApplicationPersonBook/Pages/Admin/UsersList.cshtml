@@ -1,0 +1,68 @@
+﻿@page
+@model WebApplicationPersonBook.Pages.Admin.UsersListModel
+
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<IdentityUser> _userManager;
+
+
+@{
+    ViewData["Title"] = "List of All Users";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+
+        <div class="col-6" style="padding: 0">
+            <h2 class="text-primary">Users List</h2>
+        </div>
+
+        <div class="col-6 text-right" style="padding: 0">
+            <a asp-area="" asp-page="/Admin/CreateNewUser" class="btn btn-primary">
+                <i class="fa-solid fa-plus"></i> &nbsp; Create New User
+            </a>
+        </div>
+
+
+
+        <br /><br />
+
+        @if (Model.Users.Count() > 0)
+        {
+
+            <table class="table table-bordered table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">
+                            User Name
+                        </th>
+                        <th class="text-center">
+                            User Role
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var obj in Model.Users)
+                    {
+                    <tr>
+                        <td width="25%" class="text-center">@obj.UserName</td>
+                        <td width="25%" class="text-center">@obj.UserRole</td>
+                        <td width="35%" class="text-center">
+                            <a asp-area="" asp-page="/Admin/DeleteUser" asp-route-UserName="@obj.UserName" class="btn btn-danger mx-2">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No users exists yet.</p>
+        }
+
+
+    </div>
+</div>
+

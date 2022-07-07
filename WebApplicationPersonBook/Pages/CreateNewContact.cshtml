@@ -1,0 +1,110 @@
+﻿@page
+@model WebApplicationPersonBook.Pages.CreateNewContactModel
+
+@{
+    ViewData["Title"] = "Create New Contact";
+}
+
+<div>
+    <form method="post" enctype="multipart/form-data">
+        <div class="border p-3">
+            <div class="form-group row">
+                <h2 class="text-info pl-3">@ViewData["Title"]</h2>
+                    @if(ViewData["Message"] != null)
+                    {
+                        <p class="text-danger">@ViewData["Message"]</p>
+                    }
+            </div>
+            <div class="row">
+                <div class="col-8">
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="@Model.Contact.FirstName"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="@Model.Contact.FirstName" class="form-control" />
+                            <span asp-validation-for="@Model.Contact.FirstName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="@Model.Contact.LastName"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="@Model.Contact.LastName" class="form-control" />
+                            <span asp-validation-for="@Model.Contact.LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="@Model.Contact.PhoneNumber"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="@Model.Contact.PhoneNumber" class="form-control" />
+                            <span asp-validation-for="@Model.Contact.PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="@Model.Contact.EMail"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="@Model.Contact.EMail" class="form-control" />
+                            <span asp-validation-for="@Model.Contact.EMail" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="@Model.Contact.AdditionalInfo"></label>
+                        </div>
+                        <div class="col-8">
+                            <textarea asp-for="@Model.Contact.AdditionalInfo" class="form-control"></textarea>
+                            <span asp-validation-for="@Model.Contact.AdditionalInfo" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="@Model.Avatar"></label>
+                        </div>
+                        <div class="col-8">
+                            <input type="file" name="Avatar" id="uploadBox" asp-for="@Model.Avatar" class="form-control" accept="image/jpeg,image/png" />
+                            @if (Model.FileSize == true)
+                            {
+                                <span class="text-danger">
+                                    file size no more than 100Kb
+                                </span>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-8 offset-4 row">
+                            <div class="col my-1">
+                                    <input type="submit" class="btn btn-primary w-100" value="Create" />
+
+                            </div>
+                            <div class="col my-1">
+                                <a asp-area="" asp-page="/Contacts" class="btn btn-success w-100">
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                    Back
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

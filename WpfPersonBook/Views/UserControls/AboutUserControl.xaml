@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="WpfPersonBook.Views.UserControls.AboutUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfPersonBook.Views.UserControls"
+             MinHeight="300" MinWidth="450" Background="White">
+    <Border Margin="10"
+            Padding="10"
+            BorderBrush="Blue"
+            BorderThickness="2"
+            CornerRadius="20 0 20 0">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="3 0 0 1">
+                <TextBlock MaxWidth="400" TextWrapping="Wrap">
+                    <Run FontSize="14" Foreground="Blue">Э</Run>
+                    тот проект реализован в рамках технического задания (ТЗ),
+                    которое представлено в Web Application данного проекта.
+                    <LineBreak />
+                    <Run FontSize="14" Foreground="Blue">Ц</Run>
+                    ель проекта — получить практические навыки
+                    и закрепить теорию, в рамках изучения фрэймворка ASP.NET Core.
+                </TextBlock>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Margin="3 2 0 5">
+                <TextBlock MaxWidth="400" TextWrapping="Wrap">
+                    <Run FontSize="14" Foreground="Blue">П</Run>
+                    роект состоит из трёх законченных независимых частей:
+                    Web application, desktop application, Web API service.
+                    <LineBreak />
+                    <Run FontSize="14" Foreground="Blue">С</Run>
+                    тек - C#, ASP.NET Core, WPF
+                    <LineBreak />
+                    <Run FontSize="14" Foreground="Blue">Ф</Run>
+                    ункционал - регистрация, авторизация и CRUD - операции
+                    с данными, которые представленны в объекте Контакт.
+                    Данные хранятся и предоставляются API сервисом посредством
+                    HTTP запросов. Пара - логин пароль валидны как на сайте,
+                    так и в десктоп клиенте.
+                </TextBlock>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="0 0 10 5">
+                <Button Name="CloseApp"
+                            Command="{Binding AboutVM.CloseAboutCommand}"
+                            Template="{StaticResource ButtonStyleMainWindow}"
+                            Width="90" Height="25"
+                            FontSize="13">
+                    Close
+                </Button>
+            </StackPanel>
+            
+        </Grid>
+    </Border>
+</UserControl>
