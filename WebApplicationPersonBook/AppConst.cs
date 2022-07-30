@@ -22,5 +22,6 @@ namespace WebApplicationPersonBook
         }
 
         public const string ApiPath = @"http://localhost:63810";
+        //public const string ApiPath = @"http://apiservicepersonbook.somee.com";
     }
 }

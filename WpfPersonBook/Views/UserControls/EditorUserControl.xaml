@@ -87,6 +87,7 @@
                        FontSize="12"
                        Foreground="Gray"/>
             <TextBox   Padding="5 2"
+                       TextWrapping="WrapWithOverflow"
                        Text="{Binding EditorVM.SelectedForEditContact.AdditionalInfo, Mode=TwoWay}"
                        FontSize="12"
                        Background="LightGray"/>

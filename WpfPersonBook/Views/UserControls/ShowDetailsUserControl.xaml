@@ -79,6 +79,7 @@
                        Foreground="Gray"/>
                 <TextBlock Text="{Binding Path=SelectedItem.AdditionalInfo}"
                        Padding="5 2"
+                       TextWrapping="WrapWithOverflow"
                        FontSize="16"
                        Background="LightGray"/>
             </StackPanel>

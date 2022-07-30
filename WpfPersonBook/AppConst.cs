@@ -10,9 +10,9 @@ namespace WpfPersonBook
 {
     internal class AppConst
     {
-        //public const string ApiPath = @"http://localhost:63810";
+        public const string ApiPath = @"http://localhost:63810";
 
-        public const string ApiPath = @"http://apiservicepersonbook.somee.com";
+        //public const string ApiPath = @"http://apiservicepersonbook.somee.com";
 
         public static int MaxSizeOfPicture = 102400;
 

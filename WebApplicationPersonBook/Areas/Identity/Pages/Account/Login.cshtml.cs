@@ -81,7 +81,7 @@ namespace WebApplicationPersonBook.Areas.Identity.Pages.Account
                 }
 
                 // Если регистрация в Web Api произошла из Wpf - desktop клиента
-                if(token != null && _userManager.FindByEmailAsync(Input.Email).Result == null)
+                if(!string.IsNullOrEmpty(token) && _userManager.FindByEmailAsync(Input.Email).Result == null)
                 {
                     var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                     var regResult = await _userManager.CreateAsync(user, Input.Password);
